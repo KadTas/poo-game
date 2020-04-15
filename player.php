@@ -12,13 +12,37 @@ class Character
         $this->pv = $_pv;
         $this->atk = $_atk;
     }
+    public function getNom()
+    {
+            return $this->nom;
+    }
+    public function getPV()
+    {
+            return $this->pv;
+    }
+    public function getAtk()
+    {
+            return $this->atk;
+    }
+    public function setPV($vie)
+    {
+              $this->pv = $vie;
+    }
     public function introduction()
     {
-            var_dump("En garde ! Je suis $this->nom et j'ai $this->atk en attaque, $this->pv pv !");
+            echo 'Yo !';
+            echo '<br>';
+    }
+    public function attack($ennemi)
+    {
+           $PVperdus = $ennemi->getPV();
+           $PVperdus = $PVperdus - $this->atk;
+           $ennemi->setPV($PVperdus);
+           echo $this->nom." frappe ".$ennemi->getNom."<br>";
+    }
+    public function damage()
+    {
+            echo $this->nom." a ".$this->pv." PV <br>";
     }
 }
-
-$perso1 = new Character("guerrier", 500, 50);
-$perso1->introduction();
-
 ?>
