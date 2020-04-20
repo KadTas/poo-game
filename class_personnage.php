@@ -44,8 +44,8 @@ class Personnage
   public function setStatsBLM(){ 
     $this->_pointDeVie = 400;
     $this->_pointDeDefense = 43;
-    $this->_pointDAttaque = rand(45, 55);
-    $this->_pointDAttaqueINFO =  "45-55";
+    $this->_pointDAttaque = rand(50, 60);
+    $this->_pointDAttaqueINFO =  "50-60";
     
 }
 
@@ -89,7 +89,7 @@ class NIN extends Personnage{ //Classe ninja
       $this->_limitbreak = 0;
       echo"<br>La Limit Break est déclenchée<br>";
       echo"Dégats doublés !<br>";
-      echo"".$pointdattaque."<br> de dégats infligés";
+      echo"".$pointdattaque." de dégats infligés<br>";
     }
     else{
       echo"Dégâts infligés : ".$pointdattaque."<br>";
@@ -150,7 +150,7 @@ public function recevoirAttaque($pointdattaque){ //fonction de reception des deg
     $this->_pointDeVie = $this->_pointDeVie - $pointdattaque;
     if($this->_pointDeVie < 0){$this->_pointDeVie = 0;}
     $this->_fluxether += ceil($pointdattaque/2);
-    if($this->_fluxether > 100){$this->_fluxether==100;}
+    if($this->_fluxether > 100){$this->_fluxether=100;}
     echo "----------<br> 
     Points de vie enlevés à ".$this->_nomPersonnage." : ".$pointdattaque."<br> 
     Points de Vie restants à ".$this->_nomPersonnage." : ".$this->_pointDeVie;
